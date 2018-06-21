@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/removeCenter.js"></script>
+    <style>
+        h2 {
+            color: #c12e2a;
+        }
+        .div-1 {
+            background: #cccccc;
+            height: 200px;
+        }
+        .yyx {
+            padding-left: 50px;
+            font-size: 130%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="col-lg-6">
+            <div class="div-1">
+                <h2 class="text-center">1.十进制转其它</h2>
+                <span class="yyx">输入数字转十进制:</span>
+                <input type="text" id="input-1">
+                <button id="button-1">提交</button>
+                <p id="span-1" class="yyx"></p>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="div-1">
+                <h2 class="text-center">2.二进制转其它</h2>
+                <span class="yyx">输入数字转二进制:</span>
+                <input type="text" id="input-2">
+                <button id="button-2">提交</button>
+                <p id="span-2" class="yyx"></p>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="div-1">
+                <h2 class="text-center">3.八进制转其它</h2>
+                <span class="yyx">输入数字转八进制:</span>
+                <input type="text" id="input-3">
+                <button id="button-3">提交</button>
+                <p id="span-3" class="yyx"></p>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="div-1">
+                <h2 class="text-center">4.十六进制转其它</h2>
+                <span class="yyx">输入数字转十六进制:</span>
+                <input type="text" id="input-4">
+                <button id="button-4">提交</button>
+                <p id="span-4" class="yyx"></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("button-1").onclick = function () {
+        var a = document.getElementById("input-1").value;
+        document.getElementById("span-1").innerText = "为: "+a;
+    }
+
+    document.getElementById("button-2").onclick = function () {
+        var a = parseInt(document.getElementById("input-2").value);
+        document.getElementById("span-2").innerText = "为: "+a.toString(2);
+    }
+
+    document.getElementById("button-3").onclick = function () {
+        var a = parseInt(document.getElementById("input-3").value);
+        document.getElementById("span-3").innerText = "为: "+a.toString(8);
+    }
+
+    document.getElementById("button-4").onclick = function () {
+        var a = parseInt(document.getElementById("input-4").value);
+        document.getElementById("span-4").innerText = "为: "+a.toString(16);
+    }
+</script>
+</html>

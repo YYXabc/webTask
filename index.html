@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>杨宇欣</title>
+    <script></script>
+    <script src="js/vue.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/removeCenter.js"></script>
+    <style>
+        body {
+            background: url("img/D.jpeg");
+        }
+
+        h1,h2 {
+            color: #31708f;
+        }
+        .col-lg-5 {
+            background: #8bd400;
+            padding: 0;
+            margin: 0;
+            margin-top: 20px;
+        }
+
+        .my-project-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 125%;
+        }
+
+        .my-project-list li {
+            border-top: 2px solid #e4ffd3;
+            padding: 8px;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .my-project-list li:hover {
+            font-size: 140%;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <my-navigation-bar></my-navigation-bar><br><br><br><br><br>
+    <h1 class="text-center">动态WEB作业</h1>
+    <h2 class="text-center"><a href="html/test10Score.html">项目十总成绩</a></h2>
+    <div class="container">
+        <my-project title="项目网址">
+            <my-project-code slot="list" statue="projectUrl"></my-project-code>
+        </my-project>
+        <div class="col-lg-2 col-md-2 col-sm-12"></div>
+        <my-project title="项目源码">
+            <my-project-code slot="list"></my-project-code>
+        </my-project>
+    </div>
+</div>
+<script src="js/vueTemplate.js"></script>
+</body>
+</html>

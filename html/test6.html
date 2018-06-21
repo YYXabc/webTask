@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JsTest</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/removeCenter.js"></script>
+    <style>
+        h2 {
+            color: #c12e2a;
+        }
+        .div-1 {
+            background: #cccccc;
+            height: 200px;
+        }
+        .div-2 {
+            background: #cccccc;
+            height: 250px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="col-lg-6" >
+        <div class="div-1">
+            <h2 class="text-center">1.半径，输出圆面积</h2>
+            <p>输入半径，输出圆面积</p>
+            <input type="text" id="input-1"/><button id="print-area">确认</button>
+            <p id="input-p-1"></p>
+        </div>
+    </div>
+    <div class="col-lg-6" >
+        <div class="div-1">
+            <h2 class="text-center">2.长和宽，输出长方形面积</h2>
+            <p>输入长和宽，输出长方形面积</p>
+            <input type="text" id="input-chang"/>
+            <input type="text" id="input-kuan"/>
+            <button id="print-square-area">确认</button>
+            <p id="input-p-2"></p>
+        </div>
+    </div>
+    <div class="col-lg-6" >
+        <div class="div-2">
+            <h2 class="text-center">3.a、b、c，输出一元二次求根，三种情况</h2>
+            <p>输入a、b、c，输出一元二次求根，三种情况</p>
+            <input type="text" id="input-a"/>
+            <input type="text" id="input-b"/>
+            <input type="text" id="input-c"/>
+            <button id="print-abc">确认</button>
+            <p id="input-p-3"></p>
+        </div>
+    </div>
+    <div class="col-lg-6" >
+        <div class="div-2" id="chengFa">
+            <h2 class="text-center">乘法口诀表(正序)</h2>
+        </div>
+    </div>
+    <div class="col-lg-6" >
+        <div class="div-2" id="chengFa2">
+            <h2 class="text-center">乘法口诀表(倒序)</h2>
+        </div>
+    </div>
+</div>
+<script>
+
+document.getElementById("print-area").onclick = function () {
+    var textView = document.getElementById("input-p-1");
+    var radius = document.getElementById("input-1").value;
+    radius = Number(radius);
+    if (radius =='') {
+        textView.innerText = "输入为空";
+    } else {
+        textView.innerText = "面积:" + (radius * radius) * 3.14;
+    }
+}
+
+document.getElementById("print-square-area").onclick = function () {
+    var textView = document.getElementById("input-p-2");
+    var chang = document.getElementById("input-chang").value;
+    var kuan =  document.getElementById("input-kuan").value;
+    if (chang =='' || kuan == '') {
+        textView.innerText = "输入为空";
+    } else {
+        textView.innerText = "面积:" + (chang * kuan);
+    }
+}
+
+var chengFa = function () {
+    var father = document.getElementById("chengFa");
+    for (var i = 1; i < 10; i++) {
+        for (var k = 1; k <= i; k++) {
+            var str = i + "x" + k + "=" + i*k + "  ";
+            var a = document.createElement("span");
+            var text = document.createTextNode(str);
+            a.appendChild(text);
+            father.appendChild(a);
+        }
+        var br = document.createElement("br");
+        father.appendChild(br);
+    }
+}
+
+var chengFa2 = function () {
+    var father = document.getElementById("chengFa2");
+    for (var i = 9; i > 0; i--) {
+        for (var k = 1; k <= i; k++) {
+            var str = i + "x" + k + "=" + i*k + "  ";
+            var a = document.createElement("span");
+            var text = document.createTextNode(str);
+            a.appendChild(text);
+            father.appendChild(a);
+        }
+        var br = document.createElement("br");
+        father.appendChild(br);
+    }
+}
+chengFa();
+chengFa2();
+</script>
+</body>
+</html>

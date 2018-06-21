@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/removeCenter.js"></script>
+    <script src='https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js'></script>
+    <style>
+        h1 {
+            margin-top: 80px;
+            font-size: 350%;
+        }
+
+        .fill_blanks span{
+
+        }
+        .fill_blanks input[type=text] {
+            margin-left: 5px;
+        }
+        button  {
+            font-size: 150%;
+            margin-right: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center ">湖南信息学院综合测试券</h1>
+    <div class="personal_message">
+        <span>学号:</span><input type="text" id="school_id">
+        <span>姓名:</span><input type="text" id="name">
+        <span id="prompt_box"></span>
+    </div>
+    <div class="subject">
+        <h2>一, 单项选择题 (4x10=40)</h2>
+        <p >读图回答 1~2题</p>
+        <img src="../img/imgWeb/b.png" alt=""><!--回去添加-->
+        <div>
+            <h4>1. 图中所示的地势特征对我国影响描述不恰当的一项是( )</h4>
+            <p>A. 有利于湿润气流深入内陆,形成降水</p>
+            <p>B. 众多大河滚滚东流,有利于东西交通</p>
+            <p>C. 阶梯之间落差大,有利于形成丰富水能</p>
+            <p>D. 有利于夏季普遍高温</p>
+            <input type="radio" name="a-radio" value="A">A
+            <input type="radio" name="a-radio" value="B">B
+            <input type="radio" name="a-radio" value="C">C
+            <input type="radio" name="a-radio" value="D">D
+        </div>
+        <div>
+            <h4>2. 青藏高原夏季气温相对较低,主要原因是( )</h4>
+            <p>A. 海拔高</p>
+            <p>B. 纬度高</p>
+            <p>C．有极夜现象</p>
+            <p>D．受冬季风的影响强烈</p>
+            <input type="radio" name="b-radio" value="A">A
+            <input type="radio" name="b-radio" value="B">B
+            <input type="radio" name="b-radio" value="C">C
+            <input type="radio" name="b-radio" value="D">D
+        </div>
+        <div>
+            <h4>3. 下列哪种疾病可以通过接种疫苗来预防( )</h4>
+            <p>A. 乙肝</p>
+            <p>B. 近视</p>
+            <p>C. 龋齿</p>
+            <p>D. 贫血</p>
+            <input type="radio" name="c-radio" value="A">A
+            <input type="radio" name="c-radio" value="B">B
+            <input type="radio" name="c-radio" value="C">C
+            <input type="radio" name="c-radio" value="D">D
+        </div>
+        <div>
+            <h4>4 .下列物理现象理解正确的是( )</h4>
+            <p>A．缥缈的雾是汽化</p>
+            <p>B．晶莹的露是熔化</p>
+            <p>C．凝重的霜是凝华</p>
+            <p>D．轻柔的雪是凝固</p>
+            <input type="radio" name="d-radio" value="A">A
+            <input type="radio" name="d-radio" value="B">B
+            <input type="radio" name="d-radio" value="C">C
+            <input type="radio" name="d-radio" value="D">D
+        </div>
+        <h2>二、填空题（3×10=30）</h2>
+        <div class="fill_blanks">
+            <span>5. 最轻的元素</span><input type="text" id="b-1"><br><br>
+            <span>6. 北宋张择端创作描绘东京繁华景象的绘画作品</span><input type="text" id="b-2"><br><br>
+            <span>7. 力的三要素大小、</span><input type="text" id="b-3">,<input type="text" id="b-4">
+        </div>
+        <h2>三、不定项选择题（3×10=30）</h2>
+        <div>
+            <h4>8. 下列说法错误的是( )</h4>
+            <p>A．花香四溢说明分子在不断运动</p>
+            <p>B．分子在化学变化中不能再分</p>
+            <p>C．不同元素的本质区别是中子数不同</p>
+            <p>D．原子不能直接构成物质</p>
+            <input type="checkbox" name="a-checkbox" value="A">A
+            <input type="checkbox" name="a-checkbox" value="B">B
+            <input type="checkbox" name="a-checkbox" value="C">C
+            <input type="checkbox" name="a-checkbox" value="D">D
+        </div>
+        <div>
+            <h4>9. 以下对绿色植物各种生理活动的叙述，正确的是( )</h4>
+            <p>A．在光照下只进行光合作用和蒸腾作用</p>
+            <p>B．在光照和黑暗中都能进行呼吸作用</p>
+            <p>C．蒸腾作用产生的拉力能促进植物长高</p>
+            <p>D．光合作用的场所是叶绿体，呼吸作用的场所是线粒体</p>
+            <input type="checkbox" name="b-checkbox" value="A">A
+            <input type="checkbox" name="b-checkbox" value="B">B
+            <input type="checkbox" name="b-checkbox" value="C">C
+            <input type="checkbox" name="b-checkbox" value="D">D
+        </div>
+        <div>
+            <h4>10. 使“一国两制”伟大构想得到成功实践的历史事件是( )</h4>
+            <p>A．香港回归</p>
+            <p>B．澳门回归</p>
+            <p>C．台湾问题的解决</p>
+            <p>D．西藏和平解放</p>
+            <input type="checkbox" name="c-checkbox" value="A">A
+            <input type="checkbox" name="c-checkbox" value="B">B
+            <input type="checkbox" name="c-checkbox" value="C">C
+            <input type="checkbox" name="c-checkbox" value="D">D
+        </div>
+        <button id="button-sub">交卷</button>
+        <button id="button-clear">重置</button>
+    </div>
+</div>
+<script>
+    //单选题
+    let radioFunction = function (name,rightKey) {
+        let radio = document.getElementsByName(name);
+        for ( let i = 0;i <　radio.length; i++) {
+            if (radio[i].checked && radio[i].value === rightKey) {
+                return 10;
+            }
+        }
+        return 0;
+    }
+    //多选题
+    let checkFunction = function (name, rightKeyArray) {
+        let radio = document.getElementsByName(name);
+        let checkedArray = [];
+        for ( let i = 0; i < radio.length; i++) {
+            if (radio[i].checked) {
+                checkedArray.push(radio[i].value);
+            }
+        }
+        if (checkedArray.toString() === rightKeyArray.toString()) {
+           return 10
+        }else {
+            return 0
+        }
+    }
+    //总分返回数组
+    let totalScore = function () {
+        let singleSubName = ["a-radio","b-radio","c-radio","d-radio"];
+        let singleSubAnswer = ["D","A","A","B"];
+        let blanksSubName = ["b-1","b-2","b-3","b-4"];
+        let blanksSubAnswer =["氢","清明上河图","方向","作用点"];
+        let checkSubName = ["a-checkbox","b-checkbox","c-checkbox"];
+        let checkSubAnswer= [["B","C","D"],["B","D"],["A","B"]];
+        let sum = [];
+
+
+        for (let i = 0; i <　singleSubAnswer.length; i++) {//单选题总分
+            sum.push(radioFunction(singleSubName[i],singleSubAnswer[i])) ;
+        }
+        for (let i = 0; i < blanksSubName.length; i++) {//填空题
+            let text = document.getElementById(blanksSubName[i]).value;
+            if (i >= 2) {
+                if (text === blanksSubAnswer[2] || text === blanksSubAnswer[3]) {
+                    sum.push(5);
+                }else {
+                    sum.push(0)
+                }
+            }else {
+                if (text === blanksSubAnswer[i]) {
+                    sum.push(10);
+                }else {
+                    sum.push(0);
+                }
+            }
+        }
+        for (let i = 0; i < checkSubName.length; i++) {
+            sum.push(checkFunction(checkSubName[i],checkSubAnswer[i]));
+        }
+        return sum;
+    }
+    //数组转换为总数(Number)
+    let sumArray = function (array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
+    }
+    //对话框显示成绩
+    let alertScore = function (arrayScore,sum) {
+        let str = "";
+        for (let i in arrayScore) {
+            str += `第${Number(i)+1}题分数为: ${arrayScore[i]}\n`;
+        }
+        str += `总分为: ${sum}`;
+        alert(str);
+    }
+    //判断学号姓名
+    let isUser = function (schoolId,name) {
+        if (schoolId === "" || name === "请输入完整信息") {
+            document.getElementById('prompt_box').innerText = "信息请输入完整";
+            $('html, body').animate({scrollTop: 0}, 'slow');
+            return false;
+        }
+        else if (schoolId.length !== 12) {
+            document.getElementById('prompt_box').innerText = "学号是12位数";
+            document.getElementById("school_id").value = "";
+            $('html, body').animate({scrollTop: 0}, 'slow');
+            return false;
+        }
+        else {
+            let socket = io('127.0.0.1:3120');
+            socket.emit('chat message', [schoolId,name].concat(totalScore()));
+            socket.on('schoolId'+schoolId, function(msg){
+                if (msg === "OK") {
+                    window.location = "http://201401250132.net3v.net/html/test10Score.html?"+schoolId;
+                }else {
+                    document.getElementById('prompt_box').innerText = "学号或名字输入有误";
+                    $('html, body').animate({scrollTop: 0}, 'slow');
+                }
+            });
+        }
+    }
+
+    document.getElementById("button-clear").onclick = function () {
+        location.reload();
+    };
+    document.getElementById("button-sub").onclick = function () {
+        isUser(document.getElementById("school_id").value,document.getElementById("name").value);
+    }
+</script>
+</body>
+</html>

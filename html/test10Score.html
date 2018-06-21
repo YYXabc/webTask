@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="../js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../js/removeCenter.js"></script>
+    <script src='https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js'></script>
+    <style>
+        #table_score {
+            margin: 0 auto;
+        }
+        #table_score th {
+            font-size: 135%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 100px;
+
+        }
+        #table_score td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 120%;
+        }
+        .myself {
+            background: #ffff00;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">总成绩</h1>
+    <div id="table_id" class="col-lg-12">
+        <table id="table_score" border="1px">
+            <tr>
+                <th class="text-center">学号</th>
+                <th class="text-center">姓名</th>
+                <th class="text-center">做题状态</th>
+                <th class="text-center">第一题</th>
+                <th class="text-center">第二题</th>
+                <th class="text-center">第三题</th>
+                <th class="text-center">第四题</th>
+                <th class="text-center">第五题</th>
+                <th class="text-center">第六题</th>
+                <th class="text-center">第七题</th>
+                <th class="text-center">第八题</th>
+                <th class="text-center">第九题</th>
+                <th class="text-center">第十题</th>
+                <th class="text-center">总分</th>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    //获取学号
+    let getSchoolId = function () {
+        let url = window.location.href.toString();
+        let id = url.substr(52);
+        return id;
+    }
+    //发送ID到服务器
+    let sendServer = function () {
+        let id = getSchoolId()
+        let socket = io('127.0.0.1:3120');
+        socket.emit('fraction',id);
+        socket.on(`fraction${id}`, function(msg){
+            let fatherElement = document.getElementById("table_score");
+            for (let i = 0; i < msg.length; i++) {
+                if (i%14 === 0) {
+                    let k = i;
+                    let tr = document.createElement("tr");
+                    while (k < i+14) {
+                        if (getSchoolId() === msg[k]){
+                            tr.setAttribute("class","myself");
+                        }
+                        let td = document.createElement("td");
+                        let text1 = document.createTextNode(msg[k]);
+                        td.appendChild(text1);
+                        tr.appendChild(td);
+                        k++;
+                    }
+                    fatherElement.appendChild(tr);
+                }
+            }
+        });
+    }
+
+    sendServer();
+</script>
+</body>
+</html>
